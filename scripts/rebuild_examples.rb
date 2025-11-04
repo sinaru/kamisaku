@@ -27,11 +27,11 @@ end.parse!
 
 categories = options[:category] ? [options[:category]] : Kamisaku::PDF::CONTENT_VALIDATOR_MAP.keys
 
-Kamisaku::PDF::CONTENT_VALIDATOR_MAP.select {|key, value| categories.include? key }.each do | category, klass |
+Kamisaku::PDF::CONTENT_VALIDATOR_MAP.slice(*categories).each do |category, klass|
   templates = klass::TEMPLATES
 
   # Use specified template or all templates
-  templates = options[:template] ? templates.select {|t| t == options[:template] } : templates
+  templates = options[:template] ? templates.select { |t| t == options[:template] } : templates
 
   templates.each do |template|
     template_dir = File.expand_path("../examples/#{category}/#{template}", __dir__)
