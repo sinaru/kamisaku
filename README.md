@@ -1,6 +1,6 @@
 # 📃 Kamisaku
 
-*Build resume PDF from a yaml text file.*
+*Build resume PDF from a YAML text file.*
 
 🚀 See it in action at [https://kamisaku.sinaru.com/](https://kamisaku.sinaru.com/?utm_source=github).
 
@@ -8,10 +8,18 @@
 
 ![Kamisaku](kamisaku.png)
 
-See [examples](/examples) directory for sample generated PDF files based of [templates](/lib/templates).
-
 ## Templates
-For a list of templates availble for PDF generation, check the [examples](/examples) directory where each directory name is a template name.
+
+For a list of templates available for PDF generation, check the [examples](/examples) directory where each directory 
+name is a template name.
+
+The templates are simple ERB files. You can find the templates in [`/lib/templates`](/lib/templates).
+
+## Example YAML files
+
+Each type of document (e.g., resume) has its own schema based of YAML. There are example YAML files for the schemas for 
+each document type in `/lib/schemas`. For example, for resume, see [`/lib/resume/example.yml`](/lib/resume/example.yml).
+You can use them to try the PDF generation.
 
 ## Installation
 
@@ -23,7 +31,7 @@ This is a Ruby gem. So you can either install as a gem or clone the repo and use
 - Chrome must be accessible from the terminal as `google-chrome`.
   - Kamisaku uses Chrome's [headless mode](https://developer.chrome.com/docs/chromium/headless/) to generate PDF files.
 - Ensure `exiftool` is installed available in command line.
-  - exiftool is used to soft remove metadata added by chrome in the PDF file.
+  - exiftool is used to soft-remove metadata added by chrome in the PDF file.
 
 Add this line to your application's Gemfile:
 
@@ -42,9 +50,9 @@ $ gem install kamisaku
 
 ## Usage
 
-First we need to have a `yaml` file or a string with the correct schema data structure for the type of the PDF you are generating.
+First, we need to have a YAML file or a string with the correct schema data structure for the type of the PDF you are generating.
 
-For the list of schemas, check `lib/schema` folder. E.g. For resume it is `lib/schema/resume/schema.yml`.
+For the list of schemas, check `lib/schema` folder. E.g. For resume, it is `lib/schema/resume/schema.yml`.
 
 ## Generating PDF
 
@@ -80,31 +88,36 @@ pdf.write_to('/path/to/generated_file.pdf')
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. 
+You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
 ### Create or Update a template
 
-To a new template, create a folder with template name at `lib/templates`. Additionally add the template name to `Kamisaku::TemplateHelpers::TEMPLATES` list.
+To a new template, create a folder with template name at `lib/templates`. Additionally add the template name 
+to `Kamisaku::TemplateHelpers::TEMPLATES` list.
 
 Inside this folder, create `template.html.erb`.
 
-The template will be exposed to a Ruby hash variable called `data`. This data represent the data in the YAML file as a hash. 
+The template will be exposed to a Ruby hash variable called `data`. This data represents the data in the YAML file as a hash. 
 So you can use the Ruby hash methods to access and render the values.
 
 In addition, the template helper methods defined at `lib/kamisaku/template_helpers.rb` will also be available to use directly. 
 
-To test and build the template, you can run `scripts/rebuild_examples.rb -t <name of new template>`. This will create the PDF using the `lib/schema/example.yml`
+To test and build the template, you can run `scripts/rebuild_examples.rb -t <name of new template>`. This will 
+create the PDF using the `lib/schema/example.yml`
 and place it in `examples/` folder.
 
 ### Releasing a new gem version
 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, 
+which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/sinaru/kamisaku. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/kamisaku/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/sinaru/kamisaku. This project is 
+intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/kamisaku/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -112,4 +125,5 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Kamisaku project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/kamisaku/blob/main/CODE_OF_CONDUCT.md).
+Everyone interacting in the Kamisaku project's codebases, issue trackers, chat rooms and mailing 
+lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/kamisaku/blob/main/CODE_OF_CONDUCT.md).
