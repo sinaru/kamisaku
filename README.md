@@ -18,7 +18,7 @@ The templates are simple ERB files. You can find the templates in [`/lib/templat
 ## Example YAML files
 
 Each type of document (e.g., resume) has its own schema based of YAML. There are example YAML files for the schemas for 
-each document type in `/lib/schemas`. For example, for resume, see [`/lib/resume/example.yml`](/lib/resume/example.yml).
+each document type in `/lib/schema`. For example, for resume, see [`/lib/schema/resume/example.yml`](/lib/schema/resume/example.yml).
 You can use them to try the PDF generation.
 
 ## Installation
