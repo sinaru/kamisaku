@@ -61,7 +61,7 @@ For the list of schemas, check `lib/schema` folder. E.g. For resume, it is `lib/
 Once you have the YAML text file, feed it into the `bin/console` and specify the output location.
 
 ```bash
-bin/console -c examples/john_doe.yml -o examples/paper/john_doe.pdf -k resume -t paper
+bin/console -c lib/schema/resume/example.yml -o ~/Downloads/test_resume.pdf -k resume -t paper
 ```
 
 #### Bash options

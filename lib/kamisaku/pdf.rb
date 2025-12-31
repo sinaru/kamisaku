@@ -11,13 +11,14 @@ module Kamisaku
 
     def initialize(content_hash:, category:, template:)
       @content_hash = content_hash
-      @category = category
-      @template = template
+      @category = category.to_sym
+      @template = template.to_sym
+
       raise Error, "Invalid template name '#{template}'" unless template.is_a?(String)
-      validator_klass = CONTENT_VALIDATOR_MAP[category.to_sym]
-      raise Error, "Invalid template name '#{category}'" unless validator_klass
+      validator_klass = CONTENT_VALIDATOR_MAP[@category]
+      raise Error, "Invalid template name '#{@category}'" unless validator_klass
       validator_klass.new(content_hash:).validate!
-      raise Error, "Invalid template name '#{template}'" unless validator_klass::TEMPLATES.include?(template)
+      raise Error, "Invalid template name '#{@template}'" unless validator_klass::TEMPLATES.include?(@template)
     end
 
     def write_to(pdf_location)

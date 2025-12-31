@@ -1,6 +1,6 @@
 module Kamisaku
   class BirthdayInvitationContentValidator < BaseContentValidator
-    TEMPLATES = %w[
+    TEMPLATES = %i[
       dino
     ].freeze
 
