@@ -1,6 +1,6 @@
 module Kamisaku
   class ResumeContentValidator < Kamisaku::BaseContentValidator
-    TEMPLATES = %w[
+    TEMPLATES = %i[
       paper
       sleek
       zenith
