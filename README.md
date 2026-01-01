@@ -111,7 +111,11 @@ and place it in `examples/` folder.
 
 ### Releasing a new gem version
 
-To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, 
+To release a new version;
+1. update the version number in `version.rb`
+2. run `bundle update`
+3. commit the changes
+2. then run `bundle exec rake release` 
 which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
