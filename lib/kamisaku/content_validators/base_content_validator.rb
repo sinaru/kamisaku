@@ -4,6 +4,7 @@ module Kamisaku
     alias_method :data, :content_hash
 
     def initialize(content_hash:)
+      raise Kamisaku::Error, "content is not a Hash" unless content_hash.is_a? Hash
       @content_hash = content_hash
     end
 

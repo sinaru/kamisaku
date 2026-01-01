@@ -34,5 +34,27 @@ module Kamisaku
 
       assert_equal "Aliases are not enabled in yaml text", error.message
     end
+
+    def test_failed_parsed_by_psych_gem
+      yaml_str = <<~YAML
+        foo
+      YAML
+
+      error = assert_raises(Kamisaku::Error) do
+        Kamisaku::Helpers.yaml_str_to_content_hash(yaml_str)
+      end
+
+      assert_equal "Unable to parse yaml content", error.message
+    end
+
+    def test_valid_yaml_string
+      yaml_str = <<~YAML
+        hello: 1
+      YAML
+
+      result = Kamisaku::Helpers.yaml_str_to_content_hash(yaml_str)
+
+      assert_equal({hello: 1}, result)
+    end
   end
 end
