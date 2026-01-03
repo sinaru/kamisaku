@@ -14,11 +14,17 @@ module Kamisaku
       @category = category.to_sym
       @template = template.to_sym
 
-      raise Error, "Invalid template name '#{template}'" unless template.is_a?(String)
       validator_klass = CONTENT_VALIDATOR_MAP[@category]
-      raise Error, "Invalid template name '#{@category}'" unless validator_klass
+
+      unless validator_klass
+        raise Error, "Invalid category '#{@category}'"
+      end
+
+      unless validator_klass::TEMPLATES.include?(@template)
+        raise Error, "Invalid template '#{@template}'"
+      end
+
       validator_klass.new(content_hash:).validate!
-      raise Error, "Invalid template name '#{@template}'" unless validator_klass::TEMPLATES.include?(@template)
     end
 
     def write_to(pdf_location)
