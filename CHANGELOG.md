@@ -7,8 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.5] - 2026.01.03
 
-### Changed
-- Fix `Kamisaku::PDF` validation for category and template
+### Fixed
+
+- `Kamisaku::PDF` validation for category and template
 
 ## [0.4.4] - 2026.01.01
 
@@ -18,17 +19,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.3] - 2026.01.01
 
 ### Changed
+
 - Update YAML parsing error messages
 
 ## [0.4.2] - 2025.12.31
 
 ### Changed
+
 - Use symbols for template names internally
 
 ## [0.4.1] - 2025.06.09
 
-### Changed
-- Fix `Kamisaku::BirthdayInvitationContentValidator` template listing
+### Fixed
+- `Kamisaku::BirthdayInvitationContentValidator` template listing
 
 ## [0.4.0] - 2025.06.09
 
@@ -46,7 +49,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Update paper template
 
-
 ## [0.3.3] - 2025.06.01
 
 ### Changed
@@ -60,21 +62,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.1] - 2025-06-01
 
 ### Changed
+
 - Refactor code and update `Kamisaku::PDF` interface
 
 ## [0.3.0] - 2025-05-28
 
 ### Added
+
 - Add `Kamisaku::PDF` interface that can be used externally to generate PDF
 
 ## [0.2.1] - 2025-05-28
 
-### Changed
-- Fix pdfkit gem reference
+### Fixed
+
+- pdfkit gem reference
 
 ## [0.2.0] - 2025-05-24
 
 ### Added
+
 - Soft removing metadata in generated PDF using `exiftool`
 
 ## [0.1.2] - 2025-05-24
